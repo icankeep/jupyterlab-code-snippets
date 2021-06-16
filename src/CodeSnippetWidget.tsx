@@ -104,7 +104,7 @@ export class CodeSnippetWidget extends ReactWidget {
     this._codeSnippetWidgetModel.clearSnippets();
 
     await this.codeSnippetManager
-      .getData('snippets', 'directory')
+      .getData('s3/snippets', 'directory')
       .then(model => {
         fileModels.push(...model.content);
       });

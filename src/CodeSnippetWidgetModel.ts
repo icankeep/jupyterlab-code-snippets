@@ -41,7 +41,7 @@ export class CodeSnippetWidgetModel implements ICodeSnippetWidgetModel {
       if (snippet.name === oldName) {
         snippet.name = newName;
         CodeSnippetContentsService.getInstance().save(
-          'snippets/' + snippet.name + '.json',
+          's3/snippets/' + snippet.name + '.json',
           { type: 'file', format: 'text', content: JSON.stringify(snippet) }
         );
         break;
@@ -101,7 +101,7 @@ export class CodeSnippetWidgetModel implements ICodeSnippetWidgetModel {
   updateSnippetContents(): void {
     this._snippets.forEach(snippet => {
       CodeSnippetContentsService.getInstance().save(
-        'snippets/' + snippet.name + '.json',
+        's3/snippets/' + snippet.name + '.json',
         { type: 'file', format: 'text', content: JSON.stringify(snippet) }
       );
     });

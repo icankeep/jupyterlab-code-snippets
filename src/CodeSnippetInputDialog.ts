@@ -149,7 +149,7 @@ function createNewSnippet(
   contentsService: CodeSnippetContentsService
 ): void {
   const request = contentsService.save(
-    'snippets/' + newSnippet.name + '.json',
+    's3/snippets/' + newSnippet.name + '.json',
     {
       type: 'file',
       format: 'text',
@@ -178,7 +178,7 @@ export async function saveOverWriteFile(
   oldSnippet: ICodeSnippet,
   newSnippet: ICodeSnippet
 ): Promise<ICodeSnippet[] | null> {
-  const newPath = 'snippets/' + oldSnippet.name + '.json';
+  const newPath = 's3/snippets/' + oldSnippet.name + '.json';
 
   return await shouldOverwrite(newPath).then(value => {
     if (value) {

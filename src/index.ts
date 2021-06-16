@@ -91,7 +91,7 @@ function activateCodeSnippet(
   codeSnippetWidget.title.caption = 'Code Snippet Explorer';
 
   const contentsService = CodeSnippetContentsService.getInstance();
-  contentsService.save('snippets', { type: 'directory' });
+  contentsService.save('s3/snippets', { type: 'directory' });
 
   restorer.add(codeSnippetWidget, CODE_SNIPPET_EXTENSION_ID);
 
